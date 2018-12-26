@@ -4,6 +4,9 @@
 Author: Aman Chadha
 
 
+![alt text]((https://github.com/amanchadha/melody/command-line-interpreter/master/screenshots/sampleRun.jpg)
+
+
 Objectives
 ----------
 
