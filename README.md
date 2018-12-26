@@ -288,3 +288,8 @@ The idea of redirection is to make the stdout descriptor point to your output fi
 To give yourself a practice, create a simple program where you create an output file, intercept stdout, and call printf("hello"). When you creat your output file, you should get the corresponding file descriptor. To intercept stdout, you should call "dup2(output_fd, STDOUT_FILENO);". If you run your program, you should not see "hello" printed on the screen. Instead, the word has been redirected to your output file.
 
 In short, to intercept your ls output, you should redirect stdout before you execute ls , i.e. make the dup2() call before the exec('ls') call. Alternately, you can close(STDOUT_FILENO) and open() a new file; that file will be assigned the lowest available file descriptor and hence will be assigned to standard output.
+
+
+Tests
+-----
+To help with grading your implementation, tests are included.
