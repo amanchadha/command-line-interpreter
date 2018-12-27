@@ -4,6 +4,9 @@
 Author: Aman Chadha
 
 
+![alt text]((https://github.com/amanchadha/melody/command-line-interpreter/master/screenshots/sampleRun.jpg)
+
+
 Objectives
 ----------
 
@@ -29,10 +32,10 @@ Program Specifications
 • Basic Shell
 
 Your basic shell is basically an interactive loop: it repeatedly prints a prompt "537sh% " (note the space after the percent sign), parses the input, executes the command specified on that line of input, and waits for the command to finish. This is repeated until the user types "exit". The name of your final executable should be 537sh :
-
+```
   prompt%./537sh
   537sh%
-
+```
 You should structure your shell such that it creates a new process for each new command. There are two advantages of creating a new process. First, it protects the main shell process from any errors that occur in the new command. Second, it allows for concurrency; that is, multiple commands can be started and allowed to execute simultaneously.
 
 Your basic shell should be able to parse a command, and run the program corresponding to the command. For example, if the user types "ls -la /tmp" , your shell should run the program ls with all the given arguments and print the output on the screen.
@@ -67,10 +70,12 @@ So far, you have added your own exit built-in command. Most Unix shells have man
 
 • exit, cd, and pwd formats. The formats for exit, cd and pwd are:
 
+```   
    [optionalSpace]exit[optionalSpace]
    [optionalSpace]pwd[optionalSpace]
    [optionalSpace]cd[optionalSpace]
    [optionalSpace]cd[oneOrMoreSpace]dir[optionalSpace]
+```
 
 When you run "cd" (without arguments), your shell should change the working directory to the path stored in the $HOME environment variable. Use getenv("HOME") to obtain this.
 
@@ -80,12 +85,12 @@ You do not have to support tilde (~). Although in a typical Unix shell you could
 
 Basically, when a user types pwd, you simply call getcwd(). When a user changes the current working directory (e.g. cd somepath), you simply call chdir(). Hence, if you run your shell, and then run pwd it should look like this:
 
-
+ ``` 
   prompt% cd;./537sh
 
 
   537sh% pwd
-  /afs/cs.wisc.edu/u/m/j/username
+  /Volumes/Study/Code/command-line-interpreter
 
 
   537sh% cd /tmp
@@ -93,7 +98,7 @@ Basically, when a user types pwd, you simply call getcwd(). When a user changes 
 
   537sh% pwd
   /tmp
-
+```
 
 • File Output Redirection
 
@@ -119,12 +124,13 @@ There is a difference between errors that your shell catches and those that the 
 
 Zero or more spaces can exist between a command and the shell special characters (i.e. ";", "+" and ">" ). All of these examples are correct.
 
+```
  537sh% ls+ls+ls
 
  537sh% ls + ls + ls
 
  537sh% ls > a+ ls > b+ ls> c+ ls >d
-
+```
 
 • Batch Mode
 
@@ -148,7 +154,8 @@ The command line arguments to your shell are to be interpreted as follows.
 
 Implementing the batch mode should be very straightforward if your shell code is nicely structured. The batch file basically contains the same exact lines that you would have typed interactively in your shell. For example, if in the interactive mode, you test your program with these inputs:
 
-  emperor1%./537sh
+```
+  Aman'sMac%./537sh
 
   537sh% ls + who + ps
 
@@ -189,6 +196,7 @@ In this example, the output of the batch mode should look like this:
   ls-who-ps
 
   some error printed here 
+```
 
 • Defensive Programming. Defensive programming is required. Your program should check all parameters, error-codes, etc. before it trusts them. In general, there should be no circumstances in which your C program will core dump, hang indefinitely, or prematurely terminate. Therefore, your program must respond to all input in a reasonable manner; by "reasonable", we mean print the error message (as specified in the next paragraph) and either continue processing or exit, depending upon the situation.
 
@@ -249,13 +257,13 @@ Parsing: For reading lines of input, you may want to look at fgets(). To open a 
 Executing Commands: Look into fork , execvp, and wait/waitpid. See the UNIX man pages or the above links for these functions. Before starting this project, you should definitely play around with these functions. 
 
 You will note that there are a variety of commands in the exec family; for this project, you must use execvp. You should not use the system() call to run a command. Remember that if execvp() is successful, it will not return; if it does return, there was an error (e.g., the command does not exist). The most challenging part is getting the arguments correctly specified. The first argument specifies the program that should be executed. You do not need to specify the full path for a program here. The path prefix will be filled according to the environment configuration. The second argument, char *argv[] matches those that the program sees in its function prototype:
-
+```
   int main(int argc, char *argv[]);
-
+```
 Note that this argument is an array of strings, or an array of pointers to characters. For example, if you invoke a program with:
-
+```
    foo 205 535
-
+```
 then argv[0] = "foo", argv[1] = "205" and argv[2] = "535".
 
 Important: the list of arguments must be terminated with a NULL pointer; that is, argv[3] = NULL. We strongly recommend that you carefully check that you are constructing this array correctly!
@@ -288,3 +296,8 @@ The idea of redirection is to make the stdout descriptor point to your output fi
 To give yourself a practice, create a simple program where you create an output file, intercept stdout, and call printf("hello"). When you creat your output file, you should get the corresponding file descriptor. To intercept stdout, you should call "dup2(output_fd, STDOUT_FILENO);". If you run your program, you should not see "hello" printed on the screen. Instead, the word has been redirected to your output file.
 
 In short, to intercept your ls output, you should redirect stdout before you execute ls , i.e. make the dup2() call before the exec('ls') call. Alternately, you can close(STDOUT_FILENO) and open() a new file; that file will be assigned the lowest available file descriptor and hence will be assigned to standard output.
+
+
+Tests
+-----
+To help with grading your implementation, tests are included.
