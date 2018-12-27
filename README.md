@@ -4,7 +4,7 @@
 Author: Aman Chadha
 
 
-![alt text]((https://github.com/amanchadha/command-line-interpreter/blob/master/screenshots/sampleRun.jpg)
+![alt text](https://github.com/amanchadha/command-line-interpreter/blob/master/screenshots/sampleRun.jpg)
 
 
 Objectives
