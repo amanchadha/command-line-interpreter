@@ -90,7 +90,7 @@ Basically, when a user types pwd, you simply call getcwd(). When a user changes 
 
 
   537sh% pwd
-  /afs/cs.wisc.edu/u/m/j/username
+  /Volumes/Study/Code/command-line-interpreter
 
 
   537sh% cd /tmp
