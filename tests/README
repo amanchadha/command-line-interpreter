@@ -1,0 +1,55 @@
+To get going on the tests, simply copy the files into your current project directory.
+
+Create a directory to store results
+
+  mkdir results
+
+To run all the tests, simply type:
+
+  ./run-tests.csh
+
+To run a specific test, type:
+
+  ./run-tests.csh <testNumber>
+
+as in
+
+  ./run-tests.csh 12
+
+Running a specific test may be useful to debug a particular problem you
+are having. 
+
+Here are some short descriptions of what the tests are supposed to check:
+ 
+Part 1 - Basic Functionality - 5 points each
+ 2 pwd only
+ 3 exit command
+ 4 cd with an argument
+ 5 simple external command
+ 11 Redirected output - simple redirection
+ 21 Simple batch file - many commands
+ 7 Multiple Commands: multiple commands separated by ";"
+ 15 Parallel Commands: multiple commands separated by "+"
+ 24 cd without an argument
+ 34 Interactive mode - good commands
+
+Part 2 - Error Handling - 3 points each (except 2 pts for #22)
+ 0 too many command-line arguments
+ 1 input file - does not exist
+ 6 command longer than 512 characters
+ 12 Redirected output - output to invalid filename
+ 20 nonexecutable command
+ 22 Interactive mode - mixture of good and bad commands
+ 23 pwd with an argument
+
+Part 3 - Corner Cases - 3 points each
+ 8 Multiple Commands: multiple commands with ";", and spaces
+ 13 Multiple Commands: with redirection
+ 14 Parallel Commands: command contains only "+"
+ 17 Parallel Commands: Exit in the middle
+ 19 Multiple Commands: Exit in the middle
+ 25 Multiple Commands: command contains a series of ";"s 
+ 26 Multiple Commands: multiple commands separated by series of ";" and spaces
+ 29 Parallel Commands: with redirected output 
+ 30 Parallel Commands: Exit in the middle
+ 33 command line contains only spaces and groups of "+"s

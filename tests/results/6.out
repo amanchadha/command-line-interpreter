@@ -1,0 +1,10 @@
+This verifies one of the assumptions of this project, that your shell checks for a line of length 512 characters. Let's see whether your programs holds this basic assumption. What I do after this is to check the length of this line. Alas! it is well below 512 characters, only 181 characters. Now, I check again. This time the count is much better. It is 308 characters in length. So, how many more characters do I have to fill. By simple subtraction, it turns out to be 204. And I'm sure this additional junk will be good enough.
+cal
+    February 2013   
+Su Mo Tu We Th Fr Sa
+                1  2
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28
+

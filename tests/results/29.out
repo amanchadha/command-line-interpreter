@@ -1,0 +1,7 @@
+para 2 | sort+para 1 | sort+para 0 | sort
+1
+this message should appear  FIRST
+2
+this message should appear  SECOND
+3
+this message should appear  THIRD

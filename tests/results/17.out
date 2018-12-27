@@ -1,0 +1,5 @@
+para 1+exit+para 0
+this message should appear  FIRST
+1
+this message should appear  SECOND
+2
