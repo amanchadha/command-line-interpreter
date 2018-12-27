@@ -32,10 +32,10 @@ Program Specifications
 • Basic Shell
 
 Your basic shell is basically an interactive loop: it repeatedly prints a prompt "537sh% " (note the space after the percent sign), parses the input, executes the command specified on that line of input, and waits for the command to finish. This is repeated until the user types "exit". The name of your final executable should be 537sh :
-
+```
   prompt%./537sh
   537sh%
-
+```
 You should structure your shell such that it creates a new process for each new command. There are two advantages of creating a new process. First, it protects the main shell process from any errors that occur in the new command. Second, it allows for concurrency; that is, multiple commands can be started and allowed to execute simultaneously.
 
 Your basic shell should be able to parse a command, and run the program corresponding to the command. For example, if the user types "ls -la /tmp" , your shell should run the program ls with all the given arguments and print the output on the screen.
@@ -71,11 +71,11 @@ So far, you have added your own exit built-in command. Most Unix shells have man
 • exit, cd, and pwd formats. The formats for exit, cd and pwd are:
 
 ```   
-[optionalSpace]exit[optionalSpace]
+   [optionalSpace]exit[optionalSpace]
    [optionalSpace]pwd[optionalSpace]
    [optionalSpace]cd[optionalSpace]
    [optionalSpace]cd[oneOrMoreSpace]dir[optionalSpace]
-   ```
+```
 
 When you run "cd" (without arguments), your shell should change the working directory to the path stored in the $HOME environment variable. Use getenv("HOME") to obtain this.
 
